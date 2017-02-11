@@ -23,8 +23,8 @@ public class Zadatak05 {
 		int number = -1, counter = 0, countBellowAverage = 0;
 		double sum = 0, average = 0;
 
-		// petlja radi dok se ne unese 0
-		while (number != 0) {
+		// petlja radi dok je counter manji od 100
+		while (counter < tempNumbers.length) {
 			// boolean varijabla koja ce kontrolisati petlju
 			boolean wrongUserInput = true;
 			
@@ -44,14 +44,18 @@ public class Zadatak05 {
 					input.nextLine();
 				}				
 			}
-
-			// ako je broj razlicit od nule, broj ubacujemo u niz
-			if (number != 0) {
-				tempNumbers[counter] = number;
-				sum += number;
-				// povecavamo brojac za 1
-				counter++;
+			
+			// ako je uneseni broj 0, izlazimo iz petlje
+			if (number == 0) {
+				break;
 			}
+			
+			// ubacujemo broj u niz
+			tempNumbers[counter] = number;
+			// sabiremo uneseni broj
+			sum += number;
+			// povecavamo brojac za 1
+			counter++;
 		}
 
 		// zatvaramo scanner

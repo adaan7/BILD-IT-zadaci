@@ -32,7 +32,7 @@ public class Zadatak02 {
 		while (wrongUserInput) {
 			// uzimamo unos od korisnika
 			System.out.print("Unesite prvih 9 brojeva ISBN-10: ");
-			sNumber = input.next();
+			sNumber = input.nextLine();
 
 			// postavljamo boolean na false da bi izasli iz petlje ako je unos
 			// ispravan

@@ -32,7 +32,7 @@ public class Zadatak05 {
 			while (wrongUserInput) {
 				try {
 					// uzimamo unos od korisnika
-					System.out.print("Unesite cijeli broj: ");
+					System.out.print("Unesite cijeli broj (0 prekida unos): ");
 					number = input.nextInt();
 					
 					// postavljamo boolean na false da bi izasli iz petlje

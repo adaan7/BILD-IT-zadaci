@@ -25,27 +25,27 @@ public class Zadatak02 {
 
 		// boolean varijabla koja kontrolise petlju
 		boolean wrongUserInput = true;
-		String sNumber = "", isbn10 = "";
+		String isbn = "", isbn10 = "";
 		int n = 1, checksum = 0;
 
 		// petlja radi sve dok je unos korisnika pogresan
 		while (wrongUserInput) {
 			// uzimamo unos od korisnika
 			System.out.print("Unesite prvih 9 brojeva ISBN-10: ");
-			sNumber = input.nextLine();
+			isbn = input.nextLine();
 
 			// postavljamo boolean na false da bi izasli iz petlje ako je unos
 			// ispravan
 			wrongUserInput = false;
 
-			if (sNumber.length() != 9) {
+			if (isbn.length() != 9) {
 				// provjeravamo da li unijeti string ima tacno 9 karaktera, ako
 				// nema, ispisujemo odgovarajucu poruku i postavljamo boolean
 				// vrijednost na false
 				System.out
 						.println("Neispravan unos. Morate unijeti 9 brojeva.");
 				wrongUserInput = true;
-			} else if (!isDigits(sNumber)) {
+			} else if (!isDigits(isbn)) {
 				// pozivamo metodu koja provjerava jesu li svi karakteri u stringu brojevi
 				System.out
 						.println("Neispravan unos. Morate unijeti 9 brojeva.");
@@ -56,9 +56,9 @@ public class Zadatak02 {
 		// zatvaramo scanner
 		input.close();
 		
-		for (int i = 0; i < sNumber.length(); i++) {
+		for (int i = 0; i < isbn.length(); i++) {
 			// pretvaramo svaki karakter u int
-			int digit = Integer.parseInt(sNumber.charAt(i) + "");
+			int digit = Integer.parseInt(isbn.charAt(i) + "");
 			
 			// cifru broja mnozimo sa n i sabiramo sa checksum
 			checksum += digit * n;
@@ -71,9 +71,9 @@ public class Zadatak02 {
 		
 		if (checksum == 10) {
 			// ako je checksum jednak 10, dodajemo X kao 10-tu cifru ISBN-10 broja
-			isbn10 = sNumber + "X";
+			isbn10 = isbn + "X";
 		} else {
-			isbn10 = sNumber + checksum;
+			isbn10 = isbn + checksum;
 		}
 		
 		// ispisujemo ISBN-10 broj

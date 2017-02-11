@@ -22,26 +22,22 @@ public class Zadatak03 {
 		Scanner input = new Scanner(System.in);
 
 		// uzimamo unos od korisnika te odredjujemo velicinu niza
-		System.out.print("Unesite velicinu prvog niza: ");
-		int[] array1 = new int[input.nextInt()];
+		int[] array1 = new int[getIntUserInput(input)];
 
-		// uzimamo unos od korisnika
-		System.out
-				.print("Unesite " + array1.length + " elemenata prvog niza: ");
-		for (int e : array1) {
-			array1[e] = input.nextInt();
-		}
+		System.out.print("Potrebno je da unesete " + array1.length
+				+ " elemenata prvog niza\n");
+		
+		// uzimamo unos niza integera od korisnika
+		array1 = getIntArrayUserInput(input, array1.length);
 
 		// uzimamo unos od korisnika te odredjujemo velicinu niza
-		System.out.print("\nUnesite velicinu drugog niza: ");
-		int[] array2 = new int[input.nextInt()];
+		int[] array2 = new int[getIntUserInput(input)];
 
-		// uzimamo unos od korisnika
-		System.out.print("Unesite " + array2.length
-				+ " elemenata drugog niza: ");
-		for (int e : array2) {
-			array2[e] = input.nextInt();
-		}
+		System.out.print("Potrebno je da unesete " + array2.length
+				+ " elemenata drugog niza\n");
+		
+		// uzimamo unos niza integera od korisnika
+		array2 = getIntArrayUserInput(input, array2.length);
 
 		// zatvaramo scanner
 		input.close();
@@ -67,6 +63,60 @@ public class Zadatak03 {
 		}
 
 		return true;
+	}
+
+	// metoda koja uzima unos integera od korisnika
+	public static int getIntUserInput(Scanner input) {
+		boolean wrongUserInput = true;
+		int number = 0;
+
+		while (wrongUserInput) {
+			try {
+				System.out.print("Unesite velicinu niza: ");
+				number = input.nextInt();
+
+				wrongUserInput = false;
+
+				if (number < 1) {
+					System.out
+							.println("Pogresan unos. Morate unijeti cijeli broj veci od 0.");
+					wrongUserInput = true;
+				}
+			} catch (Exception ex) {
+				System.out
+						.println("Pogresan unos. Morate unijeti cijeli broj veci od 0.");
+				input.nextLine();
+			}
+		}
+
+		return number;
+	}
+	
+	// metoda koja uzima unos niza integera od korisnika
+	public static int[] getIntArrayUserInput(Scanner input, int arrayLength) {
+		int[] numbers = new int[arrayLength];
+
+		for (int i = 0; i < numbers.length; i++) {
+			boolean wrongUserInput = true;
+			int number = 0;
+
+			while (wrongUserInput) {
+				try {
+					System.out.print("Unesite broj: ");
+					number = input.nextInt();
+
+					wrongUserInput = false;
+				} catch (Exception ex) {
+					System.out
+							.println("Pogresan unos. Morate unijeti cijeli broj.");
+					input.nextLine();
+				}
+			}
+
+			numbers[i] = number;
+		}
+
+		return numbers;
 	}
 
 }

@@ -21,11 +21,30 @@ public class Zadatak02 {
 
 		// deklarisemo double array
 		double[] array = new double[10];
+		
+		System.out.println("Potrebno je da unesete 10 brojeva.");
 
-		// uzimamo unos od korisnika
-		System.out.print("Unesite deset brojeva: ");
 		for (int i = 0; i < array.length; i++) {
-			array[i] = input.nextDouble();
+			// boolean varijabla koja kontrolise petlju
+			boolean wrongUserInput = true;
+			double number = 0;
+			
+			while (wrongUserInput) {
+				try {
+					// uzimamo unos od korisnika
+					System.out.print("Unesite broj: ");
+					number = input.nextDouble();
+					
+					// postavljamo boolean na false da bi izasli iz petlje
+					wrongUserInput = false;
+				} catch (Exception ex) {
+					// ako je uhvacen exception ispisujemo odgovarajucu poruku
+					System.out.println("Pogresan unos. Morate unijeti broj.");
+					input.nextLine();
+				}
+			}
+			
+			array[i] = number;
 		}
 
 		// zatvaramo scanner

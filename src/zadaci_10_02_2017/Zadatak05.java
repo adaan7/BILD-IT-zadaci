@@ -24,10 +24,31 @@ public class Zadatak05 {
 		double[][] matrix = new double[3][3];
 
 		// uzimamo unos od korisnika
-		System.out.println("Unesite 3x3 matricu: ");
+		System.out.println("Potrebno je da unesete 3x3 matricu");
 		for (int i = 0; i < matrix.length; i++) {
 			for (int j = 0; j < matrix[0].length; j++) {
-				matrix[i][j] = input.nextDouble();
+				// boolean varijabla koja ce kontrolisati petlju
+				boolean wrongUserInput = true;
+				double number = 0;
+				
+				// petlja radi dok je unos korisnika pogresan
+				while (wrongUserInput) {
+					try {
+						// uzimamo unos od korisnika
+						System.out.print("Unesite broj: ");
+						number = input.nextDouble();
+						
+						// postavljamo boolean na false da bi izasli iz petlje
+						wrongUserInput = false;
+					} catch (Exception ex) {
+						// ako je uhvacen exception ispisujemo odgovarajucu poruku
+						System.out.println("Pogresan unos. Morate unijeti broj.");
+						input.nextLine();
+					}
+				}
+				
+				// ubacujemo broj u niz
+				matrix[i][j] = number;
 			}
 		}
 

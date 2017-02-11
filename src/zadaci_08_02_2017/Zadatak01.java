@@ -13,7 +13,7 @@ public class Zadatak01 {
 		list.add(2);
 		list.add(8);
 		list.add(19);
-		list.add(4);
+		list.add(7);
 
 		// ispisujemo najveci broj u listi
 		System.out.println("Najveci broj u listi je: " + max(list));
@@ -21,8 +21,9 @@ public class Zadatak01 {
 	}
 
 	public static Integer max(ArrayList<Integer> list) {
-		// provjeravamo da li je lista prazna i ukoliko jest vraæamo null
-		if (list.size() == 0 || list.isEmpty()) {
+		// provjeravamo da li je lista prazna ili jednaka null i ukoliko jest
+		// vraæamo null
+		if (list == null || list.isEmpty() || list.size() == 0) {
 			return null;
 		}
 

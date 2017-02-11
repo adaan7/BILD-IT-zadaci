@@ -19,8 +19,15 @@ public class Zadatak02 {
 		// pretvaramo uneseni string u velika slova
 		s = s.toUpperCase();
 
-		// pravimo novi string u kojem uklanjamo prazna mjesta unesenog stringa
-		String s1 = s.replace(" ", "");
+		String s1 = "";
+
+		// prolazimo petljom kroz uneseni string i dodajemo samo karaktere koji
+		// su slova u novi string
+		for (int i = 0; i < s.length(); i++) {
+			if (Character.isLetter(s.charAt(i))) {
+				s1 += s.charAt(i);
+			}
+		}
 
 		// pravimo novi string u kojem uklanjamo sve samoglasnike unesenog
 		// stringa

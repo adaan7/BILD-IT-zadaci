@@ -35,10 +35,26 @@ public class Zadatak02 {
 				num1 = num2;
 				num2 = temp;
 			}
-
-			// uzimamo unos od korisnika
-			System.out.print("Koliko je " + num1 + " - " + num2 + "? ");
-			int userAnswer = input.nextInt();
+			
+			// boolean varijabla koja ce kontrolisati petlju
+			boolean wrongUserInput = true;
+			int userAnswer = 0;
+			
+			// petlja radi sve dok je unos korisnika pogresan
+			while (wrongUserInput) {
+				try {
+					// uzimamo unos od korisnika
+					System.out.print("Koliko je " + num1 + " - " + num2 + "? ");
+					userAnswer = input.nextInt();
+					
+					// postavljamo boolean na false da bi izasli iz petlje
+					wrongUserInput = false;
+				} catch (Exception ex) {
+					// ako je uhvacen exception ispisujemo odgovarajucu poruku
+					System.out.println("Pogresan unos. Morate unijeti cijeli broj.");
+					input.nextLine();
+				}
+			}	
 
 			// ako je korisnik taèno odgovorio ispisujemo odgovarajuæu poruku i
 			// poveæavamo brojaè taènih odgovora za 1

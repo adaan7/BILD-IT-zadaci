@@ -20,9 +20,33 @@ public class Zadatak04 {
 		// kreiramo novi scanner objekat
 		Scanner input = new Scanner(System.in);
 
-		// uzimamo unos od korisnika
-		System.out.print("Unesite n: ");
-		int number = input.nextInt();
+		// boolean varijabla koja ce da kontrolise petlju
+		boolean wrongUserInput = true;
+		int number = 0;
+
+		// petlja radi dok je unos korisnika pogresan
+		while (wrongUserInput) {
+			try {
+				// uzimamo unos od korisnika
+				System.out.print("Unesite n: ");
+				number = input.nextInt();
+
+				// postavljamo boolean na false da bi izasli iz petlje
+				wrongUserInput = false;
+
+				if (number < 1) {
+					// ako je broj manji od 1 ispisujemo odgovarajucu poruku i
+					// vracamo boolean na true
+					System.out
+							.println("Pogresan unos. Morate unijeti cijeli broj veci od 0.");
+					wrongUserInput = true;
+				}
+			} catch (Exception ex) {
+				System.out
+						.println("Pogresan unos. Morate unijeti cijeli broj veci od 0.");
+				input.nextLine();
+			}
+		}
 
 		// zatvaramo scanner
 		input.close();

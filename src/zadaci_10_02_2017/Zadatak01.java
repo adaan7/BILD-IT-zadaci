@@ -20,6 +20,18 @@ public class Zadatak01 {
 	public static void printPrimeNumbers(int firstNum, int lastNum,
 			int numbersPerLine) {
 		int counter = 0;
+		
+		// ako su uneseni negativni brojevi, pretvorimo ih u pozitivne
+		firstNum = Math.abs(firstNum);
+		lastNum = Math.abs(lastNum);
+		numbersPerLine = Math.abs(numbersPerLine);
+		
+		// ako je prvi broj veci od drugog, zammijenimo im mjesta
+		if (firstNum > lastNum) {
+			int temp = firstNum;
+			firstNum = lastNum;
+			lastNum = temp;
+		}
 
 		for (int number = firstNum; number <= lastNum; number++) {
 			// pozivamo metodu koja provjerava je li broj prost, ako jeste

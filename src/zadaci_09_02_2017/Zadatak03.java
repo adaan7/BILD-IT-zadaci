@@ -18,30 +18,35 @@ public class Zadatak03 {
 
 		String fileName = args[0];
 		Path path = Paths.get(fileName);
-
-		BufferedReader reader = Files.newBufferedReader(path);
-
-		String line = "";
-		int countLine = 0, countChar = 0, countWord = 0;
-
-		// prolazimo petljom kroz fajl
-		while ((line = reader.readLine()) != null) {
-			// podijelimo svaki red u fajlu u niz rijeci
-			String[] array = line.split(" ");
-
-			// brojac rijeci povecavamo za velicinu niza koji sadrzi broj rijeci
-			// u svakoj liniji
-			countWord += array.length;
-
-			// brojac karaktera povecavamo za duzinu linije
-			countChar += line.length();
-
-			// brojac linija povecavamo za 1
-			countLine++;
+		
+		// provjeravamo da li postoji fajl, ako ne, kreiramo novi fajl
+		if (!Files.exists(path)) {
+			Files.createFile(path);
 		}
 
-		// zatvaramo bufferedreader
-		reader.close();
+		int countLine = 0, countChar = 0, countWord = 0;
+		
+		try (BufferedReader reader = Files.newBufferedReader(path)) {
+			String line = "";
+			
+			// prolazimo petljom kroz fajl
+			while ((line = reader.readLine()) != null) {
+				// podijelimo svaki red u fajlu u niz rijeci
+				String[] array = line.split(" ");
+				
+				// brojac rijeci povecavamo za velicinu niza koji sadrzi broj rijeci
+				// u svakoj liniji
+				countWord += array.length;
+				
+				// brojac karaktera povecavamo za duzinu linije
+				countChar += line.length();
+				
+				// brojac linija povecavamo za 1
+				countLine++;
+			}
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
 
 		// ispisujemo broj linija, broj karaktera i broj rijeci u fajlu
 		System.out.println("Broj linija u fajlu: " + countLine);

@@ -24,6 +24,8 @@ public class Zadatak01 {
 		boolean wrongAmmountInput = true;
 		boolean wrongMonthInput = true;
 		double savingAmmount = 0;
+		double monthlyInterest = 0.00417;
+		double balance = 0;
 		int numberOfMonths = 0;
 
 		while (wrongAmmountInput) {
@@ -68,9 +70,6 @@ public class Zadatak01 {
 		}
 
 		input.close();
-
-		double monthlyInterest = 0.00417;
-		double balance = 0;
 
 		// racunamo stanje racuna nakon odredjenog broja mjeseci
 		for (int i = 0; i < numberOfMonths; i++) {

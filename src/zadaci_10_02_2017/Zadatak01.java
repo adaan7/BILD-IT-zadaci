@@ -21,7 +21,7 @@ public class Zadatak01 {
 			int numbersPerLine) {
 		int counter = 0;
 		
-		// ako su uneseni negativni brojevi, pretvorimo ih u pozitivne
+		// ako su uneseni argumenti negativni, pretvorimo ih u pozitivne
 		firstNum = Math.abs(firstNum);
 		lastNum = Math.abs(lastNum);
 		numbersPerLine = Math.abs(numbersPerLine);

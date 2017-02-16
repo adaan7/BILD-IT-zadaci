@@ -26,10 +26,10 @@ public class Zadatak02 {
 		Scanner input = new Scanner(System.in);
 
 		// pozivamo metode koje uzimaju unos od korisnika
-		double x1 = DoubleUserInput.getDouble(input, "Unesite x1: ");
-		double y1 = DoubleUserInput.getDouble(input, "Unesite y1: ");
-		double x2 = DoubleUserInput.getDouble(input, "Unesite x2: ");
-		double y2 = DoubleUserInput.getDouble(input, "Unesite y2: ");
+		double x1 = DoubleUserInput.getDouble(input, "Unesite x1: ", -90, 90);
+		double y1 = DoubleUserInput.getDouble(input, "Unesite y1: ", -180, 180);
+		double x2 = DoubleUserInput.getDouble(input, "Unesite x2: ", -90, 90);
+		double y2 = DoubleUserInput.getDouble(input, "Unesite y2: ", -180, 180);
 
 		input.close();
 

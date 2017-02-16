@@ -103,8 +103,20 @@ public class Craps {
 
 		int sum = dice1 + dice2;
 
+		// pauziramo program pola sekunde i simuliramo bacanje dvije kockice
+		try {
+			Thread.sleep(500);
+			System.out.print("|" + dice1 + "|");
+			Thread.sleep(500);
+			System.out.print("|" + dice2 + "|");
+			Thread.sleep(500);
+		} catch (Exception ex) {
+
+		}
+
 		// ispisujemo brojeve koje je korisnik dobio
-		System.out.println("You rolled " + dice1 + " + " + dice2 + " = " + sum);
+		System.out.print(" You rolled " + dice1 + " + " + dice2 + " = " + sum
+				+ "\n");
 
 		return sum;
 	}

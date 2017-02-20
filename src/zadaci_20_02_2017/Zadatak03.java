@@ -14,7 +14,7 @@ public class Zadatak03 {
 		int counter = 0;
 
 		for (int number = 0; number < 100000; number++) {
-			if (isPrime(number)) {
+			if (isPrime(number) == 1) {
 				// provjeravamo da li je broj prost i ispisujemo ga ako jeste
 				System.out.printf("%5d ", number);
 				// povecavamo brojac za 1
@@ -31,15 +31,20 @@ public class Zadatak03 {
 
 	}
 
-	// metoda koja provjerava da li je broj prost
-	public static boolean isPrime(int n) {
+	// metoda koja provjerava da li je broj prost i vraca 1 ako jeste a 0 ako
+	// nije
+	public static int isPrime(int n) {
 		for (int divisor = 2; divisor <= n / 2; divisor++) {
 			if (n % divisor == 0) {
-				return false;
+				return 0;
 			}
 		}
 
-		return true;
+		if (n == 0 || n == 1) {
+			return 0;
+		}
+
+		return 1;
 	}
 
 }

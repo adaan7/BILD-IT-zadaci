@@ -24,6 +24,18 @@ public class Zadatak02 {
 
 		input.close();
 
+		// ispisujemo najmanji zajednicki djelilac
+		System.out.println("\nNajmanji zajednicki djelilac za brojeve "
+				+ number1 + " i " + number2 + " je: " + lcd(number1, number2));
+
+		// ispisujemo najveci zajednicki djelilac
+		System.out.println("Najveci zajednicki djelilac za brojeve " + number1
+				+ " i " + number2 + " je: " + gcd(number1, number2));
+
+	}
+
+	// metoda koja vraca najveci zajednicki djelilac
+	public static int gcd(int number1, int number2) {
 		// najmanji zajednicki djelilac je uvijek 1
 		int gcd = 1;
 
@@ -35,10 +47,24 @@ public class Zadatak02 {
 			}
 		}
 
-		// ispisujemo najveci zajednicki djelilac
-		System.out.println("\nNajveci zajednicki djelilac za brojeve "
-				+ number1 + " i " + number2 + " je: " + gcd);
+		return gcd;
+	}
 
+	// metoda koja vraca najmanji zajednicki djelilac
+	public static int lcd(int number1, int number2) {
+		// najmanji zajednicki djelilac je uvijek 1
+		int lcd = 1;
+
+		for (int divisor = 2; divisor <= number1 && divisor <= number2; divisor++) {
+			if (number1 % divisor == 0 && number2 % divisor == 0) {
+				// prvi broj sa kojim su oba unesena broja djeljiva vracamo kao
+				// najmanji zajednicki djelilac i prekidamo petlju
+				lcd = divisor;
+				break;
+			}
+		}
+
+		return lcd;
 	}
 
 }

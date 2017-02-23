@@ -19,7 +19,7 @@ public class Zadatak01 {
 
 		// pozivamo metodu koja uzima unos od korisnika
 		int number = IntUserInput.getInt(input,
-				"Unesite pozitivan cijeli broj: ");
+				"Unesite pozitivan cijeli trocifreni broj: ", 100, 999);
 
 		input.close();
 

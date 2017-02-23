@@ -18,8 +18,10 @@ public class Zadatak05 {
 		Scanner input = new Scanner(System.in);
 
 		// uzimamo unos od korisnika
-		int number = IntUserInput.getInt(input,
-				"Unesite cijeli broj do kojeg zelite ispisati piramidu: ", 1);
+		int number = IntUserInput
+				.getInt(input,
+						"Unesite cijeli broj do kojeg zelite ispisati piramidu (1 - 99): ",
+						1, 99);
 
 		input.close();
 
@@ -27,15 +29,15 @@ public class Zadatak05 {
 		for (int i = 1; i <= number; i++) {
 			// petlja koja ispisuje razmake
 			for (int j = i; j <= number; j++) {
-				System.out.print("  ");
+				System.out.print("   ");
 			}
 			// petlja koja ispisuje lijevu stranu piramide
 			for (int k = i; k >= 1; k--) {
-				System.out.print(k + " ");
+				System.out.printf("%3d", k);
 			}
 			// petlja koja ispisuje desnu stranu piramide
 			for (int m = 2; m <= i; m++) {
-				System.out.print(m + " ");
+				System.out.printf("%3d", m);
 			}
 			System.out.println();
 		}

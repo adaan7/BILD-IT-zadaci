@@ -19,7 +19,7 @@ public class Zadatak05 {
 		Scanner input = new Scanner(System.in);
 
 		// pozivamo metodu koja uzima unos od korisnika
-		int n = IntUserInput.getInt(input, "Unesite broj n: ", 1);
+		int n = IntUserInput.getInt(input, "Unesite broj n: ", 1, 100);
 
 		// pozivamo metodu koja ispisuje matricu
 		printMatrix(n);

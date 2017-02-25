@@ -4,8 +4,8 @@ import java.util.Scanner;
 
 public class IntUserInput {
 
-	public static int getInt(Scanner input, String text,
-			int firstCondition, int secondCondition) {
+	public static int getInt(Scanner input, String text, int firstCondition,
+			int secondCondition) {
 		int userInput = 0;
 		boolean wrongUserInput = true;
 
@@ -18,18 +18,18 @@ public class IntUserInput {
 
 				if (userInput < firstCondition || userInput > secondCondition) {
 					System.out
-							.println("Pogresan unos. Morate unijeti cijeli broj od "
+							.println("Wrong input. You have to enter an integer from "
 									+ firstCondition
-									+ " do "
+									+ " to "
 									+ secondCondition
 									+ ".");
 					wrongUserInput = true;
 				}
 			} catch (Exception ex) {
 				System.out
-						.println("Pogresan unos. Morate unijeti cijeli broj od "
+						.println("Wrong input. You have to enter an integer from "
 								+ firstCondition
-								+ " do "
+								+ " to "
 								+ secondCondition
 								+ ".");
 				input.nextLine();
@@ -52,13 +52,13 @@ public class IntUserInput {
 
 				if (userInput < condition) {
 					System.out
-							.println("Pogresan unos. Morate unijeti cijeli broj veci ili jednak od "
+							.println("Wrong input. You have to enter an integer bigger or equal to "
 									+ condition);
 					wrongUserInput = true;
 				}
 			} catch (Exception ex) {
 				System.out
-						.println("Pogresan unos. Morate unijeti cijeli broj veci ili jednak od "
+						.println("Wrong input. You have to enter an integer bigger or equal to "
 								+ condition);
 				input.nextLine();
 			}
@@ -79,7 +79,7 @@ public class IntUserInput {
 				wrongUserInput = false;
 			} catch (Exception ex) {
 				System.out
-						.println("Pogresan unos. Morate unijeti cijeli broj.");
+						.println("Wrong input. You have to enter an integer.");
 				input.nextLine();
 			}
 		}

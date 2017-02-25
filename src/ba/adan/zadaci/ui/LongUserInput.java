@@ -17,13 +17,14 @@ public class LongUserInput {
 
 				if (userInput < condition) {
 					System.out
-							.println("Pogresan unos. Morate unijeti cijeli broj jednak ili veci od "
+							.println("Wrong input. You have to enter a long number bigger or equal to "
 									+ condition + ".");
 					wrongUserInput = true;
 				}
 			} catch (Exception ex) {
 				System.out
-						.println("Pogresan unos. Morate unijeti cijeli broj kao long.");
+						.println("Wrong input. You have to enter a long number bigger or equal to "
+								+ condition + ".");
 				input.nextLine();
 			}
 		}

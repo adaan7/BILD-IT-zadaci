@@ -15,7 +15,8 @@ public class ShortUserInput {
 
 				wrongUserInput = false;
 			} catch (Exception ex) {
-				System.out.println("Pogresan unos. Morate unijeti short broj.");
+				System.out
+						.println("Wrong input. You have to enter a short number.");
 				input.nextLine();
 			}
 		}
@@ -37,15 +38,20 @@ public class ShortUserInput {
 
 				if (userInput < firstCondition || userInput > secondCondition) {
 					System.out
-							.println("Pogresan unos. Morate unijeti short broj od "
+							.println("Wrong input. You have to enter a short number from "
 									+ firstCondition
-									+ " do "
+									+ " to "
 									+ secondCondition
 									+ ".");
 					wrongUserInput = true;
 				}
 			} catch (Exception ex) {
-				System.out.println("Pogresan unos. Morate unijeti short broj.");
+				System.out
+						.println("Wrong input. You have to enter a short number from "
+								+ firstCondition
+								+ " to "
+								+ secondCondition
+								+ ".");
 				input.nextLine();
 			}
 		}
@@ -66,12 +72,14 @@ public class ShortUserInput {
 
 				if (userInput < condition) {
 					System.out
-							.println("Pogresan unos. Morate unijeti short broj veci ili jednak od "
+							.println("Wrong input. You have to enter a short number bigger or equal to "
 									+ condition);
 					wrongUserInput = true;
 				}
 			} catch (Exception ex) {
-				System.out.println("Pogresan unos. Morate unijeti short broj.");
+				System.out
+						.println("Wrong input. You have to enter a short number bigger or equal to "
+								+ condition);
 				input.nextLine();
 			}
 		}

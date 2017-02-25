@@ -3,7 +3,7 @@ package ba.adan.zadaci.ui;
 import java.util.Scanner;
 
 public class DoubleUserInput {
-	
+
 	public static double getDouble(Scanner input, String text,
 			double firstCondition, double secondCondition) {
 		double userInput = 0;
@@ -18,18 +18,18 @@ public class DoubleUserInput {
 
 				if (userInput < firstCondition || userInput > secondCondition) {
 					System.out
-							.println("Pogresan unos. Morate unijeti broj od "
+							.println("Wrong input. You have to enter a number from "
 									+ firstCondition
-									+ " do "
+									+ " to "
 									+ secondCondition
 									+ ".");
 					wrongUserInput = true;
 				}
 			} catch (Exception ex) {
 				System.out
-						.println("Pogresan unos. Morate unijeti broj od "
+						.println("Wrong input. You have to enter a number from "
 								+ firstCondition
-								+ " do "
+								+ " to "
 								+ secondCondition
 								+ ".");
 				input.nextLine();
@@ -52,13 +52,13 @@ public class DoubleUserInput {
 
 				if (userInput < condition) {
 					System.out
-							.println("Pogresan unos. Morate unijeti broj veci ili jednak od "
+							.println("Wrong input. You have to enter a number bigger or equal to "
 									+ condition);
 					wrongUserInput = true;
 				}
 			} catch (Exception ex) {
 				System.out
-						.println("Pogresan unos. Morate unijeti broj veci ili jednak od "
+						.println("Wrong input. You have to enter a number bigger or equal to "
 								+ condition);
 				input.nextLine();
 			}
@@ -78,8 +78,7 @@ public class DoubleUserInput {
 
 				wrongUserInput = false;
 			} catch (Exception ex) {
-				System.out
-						.println("Pogresan unos. Morate unijeti broj.");
+				System.out.println("Wrong input. You have to enter a number.");
 				input.nextLine();
 			}
 		}

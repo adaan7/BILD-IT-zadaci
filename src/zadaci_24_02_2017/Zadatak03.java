@@ -18,13 +18,13 @@ public class Zadatak03 {
 		Scanner input = new Scanner(System.in);
 
 		// uzimamo unos short broja od korisnika
-		short number = ShortUserInput.getShort(input, "Unesite pozitivan short broj: ", 0, 128);
+		short number = ShortUserInput.getShort(input, "Unesite pozitivan short broj: ", 0);
 		
 		input.close();
 
 		// ispisujemo odgovarajuci binarni broj
 		System.out.printf("\nBinarni broj: %016d",
-				Integer.parseInt(Integer.toBinaryString(number)));
+				Long.parseLong(Integer.toBinaryString(number)));
 
 	}
 

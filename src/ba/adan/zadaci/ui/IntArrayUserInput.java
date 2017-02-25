@@ -17,7 +17,7 @@ public class IntArrayUserInput {
 
 			while (wrongUserInput) {
 				try {
-					System.out.println(text);
+					System.out.print(text);
 					number = input.nextInt();
 
 					wrongUserInput = false;
@@ -55,7 +55,7 @@ public class IntArrayUserInput {
 
 			while (wrongUserInput) {
 				try {
-					System.out.println(text);
+					System.out.print(text);
 					number = input.nextInt();
 
 					wrongUserInput = false;
@@ -91,7 +91,7 @@ public class IntArrayUserInput {
 
 			while (wrongUserInput) {
 				try {
-					System.out.println(text);
+					System.out.print(text);
 					number = input.nextInt();
 
 					wrongUserInput = false;

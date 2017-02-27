@@ -36,10 +36,11 @@ public class Zadatak05 {
 			}
 		}
 
-		System.out.println("Enter matrix2: ");
+		System.out.println("\nEnter matrix2: ");
 
 		// uzimamo unos druge matrice od korisnika
 		double[][] matrix2 = new double[3][3];
+		
 		for (int i = 0; i < matrix2.length; i++) {
 			for (int j = 0; j < matrix2[0].length; j++) {
 				matrix2[i][j] = DoubleUserInput.getDouble(input,
@@ -59,6 +60,7 @@ public class Zadatak05 {
 			for (double f : e) {
 				System.out.print(f + " ");
 			}
+
 			System.out.println();
 		}
 

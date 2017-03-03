@@ -72,6 +72,14 @@ public class Hangman {
 					asteriskChars[i] = user;
 					noMatch = false;
 				}
+
+				if (missedCharList.contains(user)) {
+					// ako korisnik unese slovo koje je vec pokusao, ispisujemo
+					// odgovarajucu poruku i trazimo novi unos
+					System.out.println("You have already tried '" + user + "'");
+					noMatch = false;
+					break;
+				}
 			}
 
 			if (noMatch) {

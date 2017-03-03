@@ -11,6 +11,7 @@ public class Hangman {
 		String randomWord = wordList
 				.get((int) (Math.random() * wordList.size()));
 
+		ArrayList<Character> missedCharList = new ArrayList<>();
 		char[] wordChars = new char[randomWord.length()];
 		char[] asteriskChars = new char[randomWord.length()];
 		char asterisk = '*';
@@ -52,6 +53,8 @@ public class Hangman {
 				Display.printHeadBodyArmsLeg();
 			}
 
+			Display.printMissedChars(missedCharList);
+
 			// uzimamo unos karaktera od korisnika
 			char user = UserInput.getGuessingChar(input, asteriskChars);
 
@@ -76,6 +79,13 @@ public class Hangman {
 				// ispisujemo odgovarajucu poruku i povecavamo brojac promasaja
 				// za 1
 				System.out.println(user + " is not in the word");
+
+				if (!missedCharList.contains(user)) {
+					// ako lista promasenih slova ne sadrzi trenutno promaseno
+					// slovo, dodajemo to slovo u listu
+					missedCharList.add(user);
+				}
+
 				countMiss++;
 			}
 

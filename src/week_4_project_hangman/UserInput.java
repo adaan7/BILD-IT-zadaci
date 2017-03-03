@@ -20,6 +20,7 @@ public class UserInput {
 
 			// uzimamo unos od korisnika
 			String sUser = input.nextLine();
+			sUser = sUser.toLowerCase();
 			user = sUser.charAt(0);
 
 			wrongUserInput = false;

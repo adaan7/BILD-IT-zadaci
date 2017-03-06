@@ -13,6 +13,7 @@ public class BattleshipApp {
 
 	// method that starts the application
 	public static void BattleshipApplication() {
+		
 		Scanner input = new Scanner(System.in);
 
 		int userOption = 1;
@@ -25,6 +26,8 @@ public class BattleshipApp {
 			userOption = UserInput.getInt(input,
 					"Play again (1 - Yes, 2 - No)? ", 1, 2);
 		}
+		
+		input.close();
 
 		System.out.println("\nThanks for playing!");
 	}

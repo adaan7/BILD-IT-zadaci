@@ -48,18 +48,23 @@ public class UserInput {
 		char userInput = ' ';
 
 		while (wrongUserInput) {
-			System.out.print(text);
-			String sUserInput = input.nextLine();
-			sUserInput = sUserInput.toUpperCase();
-			userInput = sUserInput.charAt(0);
+			try {
+				System.out.print(text);
+				String sUserInput = input.nextLine();
+				sUserInput = sUserInput.toUpperCase();
+				userInput = sUserInput.charAt(0);
 
-			wrongUserInput = false;
+				wrongUserInput = false;
 
-			if (sUserInput.length() != 1
-					|| !Validation.checkCharacter(userInput)) {
+				if (sUserInput.length() != 1
+						|| !Validation.checkCharacter(userInput)) {
+					System.out
+							.println("Wrong input. You have to enter one character from A to J.");
+					wrongUserInput = true;
+				}
+			} catch (Exception ex) {
 				System.out
 						.println("Wrong input. You have to enter one character from A to J.");
-				wrongUserInput = true;
 			}
 		}
 

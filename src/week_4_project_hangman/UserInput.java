@@ -10,26 +10,32 @@ public class UserInput {
 		char user = ' ';
 
 		while (wrongUserInput) {
-			System.out.print("\n(Guess) Enter a letter in a word ");
+			try {
+				System.out.print("\n(Guess) Enter a letter in a word ");
 
-			for (int i = 0; i < asteriskChars.length; i++) {
-				System.out.print(asteriskChars[i]);
-			}
+				for (int i = 0; i < asteriskChars.length; i++) {
+					System.out.print(asteriskChars[i]);
+				}
 
-			System.out.print(" > ");
+				System.out.print(" > ");
 
-			// uzimamo unos od korisnika
-			String sUser = input.nextLine();
-			sUser = sUser.toLowerCase();
-			user = sUser.charAt(0);
+				// uzimamo unos od korisnika
+				String sUser = input.nextLine();
+				sUser = sUser.toLowerCase();
+				user = sUser.charAt(0);
 
-			wrongUserInput = false;
+				wrongUserInput = false;
 
-			if (sUser.length() != 1 || !Character.isLetter(user)) {
-				// ako korisnik unese vise od 1 ili ni jedan karakter ili unese
-				// karakter koji nije slovo, ispisujemo odgovarajucu poruku
+				if (sUser.length() != 1 || !Character.isLetter(user)) {
+					// ako korisnik unese vise od 1 ili ni jedan karakter ili
+					// unese
+					// karakter koji nije slovo, ispisujemo odgovarajucu poruku
+					System.out
+							.println("Wrong input. You have to enter a letter.");
+					wrongUserInput = true;
+				}
+			} catch (Exception ex) {
 				System.out.println("Wrong input. You have to enter a letter.");
-				wrongUserInput = true;
 			}
 		}
 

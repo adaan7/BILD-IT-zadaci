@@ -39,20 +39,9 @@ public class Hangman {
 			boolean noMatch = true;
 
 			// crtamo hangman-a u zavisnosti od broja promasaja
-			if (countMiss == 0) {
-				Display.printHanger();
-			} else if (countMiss == 1) {
-				Display.printHead();
-			} else if (countMiss == 2) {
-				Display.printHeadBody();
-			} else if (countMiss == 3) {
-				Display.printHeadBodyOneArm();
-			} else if (countMiss == 4) {
-				Display.printHeadBodyArms();
-			} else if (countMiss == 5) {
-				Display.printHeadBodyArmsLeg();
-			}
+			Display.printHangman(countMiss);
 
+			// pozivamo metodu koja ispisuje karaktere koje je korisnik promasio
 			Display.printMissedChars(missedCharList);
 
 			// uzimamo unos karaktera od korisnika

@@ -82,6 +82,23 @@ public class Display {
 		System.out.println(" _______|__");
 	}
 
+	// metoda koja ispisuje hangmana u zavisnosti od broja promasaja
+	public static void printHangman(int countMiss) {
+		if (countMiss == 0) {
+			Display.printHanger();
+		} else if (countMiss == 1) {
+			Display.printHead();
+		} else if (countMiss == 2) {
+			Display.printHeadBody();
+		} else if (countMiss == 3) {
+			Display.printHeadBodyOneArm();
+		} else if (countMiss == 4) {
+			Display.printHeadBodyArms();
+		} else if (countMiss == 5) {
+			Display.printHeadBodyArmsLeg();
+		}
+	}
+
 	// metoda koja ispisuje promasene karaktere
 	public static void printMissedChars(ArrayList<Character> missedCharList) {
 		Collections.sort(missedCharList);
@@ -95,7 +112,7 @@ public class Display {
 				System.out.print(missedCharList.get(i) + ", ");
 			}
 		}
-		
+
 		System.out.print("\n");
 	}
 

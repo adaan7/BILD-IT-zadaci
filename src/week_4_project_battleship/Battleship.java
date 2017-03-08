@@ -50,6 +50,12 @@ public class Battleship {
 			getPlayerShot(input, "Player One", "Player Two",
 					playerTwoMainTable, playerTwoShowTable, playerTwoShipGroup);
 
+			// stop the loop if all ships from player two are destroyed and
+			// finish the game
+			if (!Validation.checkPlayerShips(playerTwoShipGroup)) {
+				break;
+			}
+
 			// get player Two shot
 			getPlayerShot(input, "Player Two", "Player One",
 					playerOneMainTable, playerOneShowTable, playerOneShipGroup);

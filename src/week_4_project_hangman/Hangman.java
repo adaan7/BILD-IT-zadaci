@@ -72,8 +72,8 @@ public class Hangman {
 			}
 
 			if (noMatch) {
-				// ako korisnik nije pogodio ni jedno slovo iz rijeci,
-				// ispisujemo odgovarajucu poruku i povecavamo brojac promasaja
+				// ako korisnik nije slovo iz rijeci, ispisujemo odgovarajucu
+				// poruku i povecavamo brojac promasaja
 				// za 1
 				System.out.println(user + " is not in the word");
 

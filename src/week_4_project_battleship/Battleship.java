@@ -41,7 +41,7 @@ public class Battleship {
 		// player two place ships on table
 		placePlayerShipsOnTable(input, "Player Two", playerTwoMainTable,
 				playerTwoShowTable, playerTwoShipGroup);
-		
+
 		System.out.println("\n|-|-| START WITH SHOOTING |-|-|");
 
 		while (Validation.checkPlayerShips(playerOneShipGroup)
@@ -66,7 +66,7 @@ public class Battleship {
 
 		while (isPlayerGoodShot) {
 			Display.printTable(enemyShowTable);
-			
+
 			// get hit position from player
 			int[] playerHitPosition = UserInput.getHitPositionFromUser(input,
 					playerName, enemyShowTable);
@@ -76,31 +76,10 @@ public class Battleship {
 
 			// check if player hit one of the ships
 			if (Validation.isGoodShot(row, column, enemyMainTable)) {
-				// get index of the ship that was hit
-				int indexOfShip = getIndexOfShip(row, column, enemyMainTable,
-						enemyShipGroup);
-				// hit that ship, increase hit counter by 1
-				enemyShipGroup.get(indexOfShip).hit();
-
-				char shipFirstLetter = getShipFirstLetterFromIndex(indexOfShip);
-
-				enemyShowTable[row][column] = shipFirstLetter;
-
-				System.out.println("\nGood shot, " + playerName + "!");
-
-				if (enemyShipGroup.get(indexOfShip).getNumberOfHits() == enemyShipGroup
-						.get(indexOfShip).getShipLength()) {
-					System.out.println("*** You have been destroyed enemy's "
-							+ enemyShipGroup.get(indexOfShip).getShipName()
-							+ "! ***");
-					enemyShipGroup.get(indexOfShip).setDestroyed(true);
-				}
+				playerHitShip(row, column, playerName, enemyMainTable,
+						enemyShowTable, enemyShipGroup);
 			} else {
-				// if player missed a ship, write 'X' in the enemy's table on
-				// that position
-				enemyShowTable[row][column] = 'X';
-				
-				System.out.println("\nYou missed!");
+				playerMissShip(row, column, enemyShowTable);
 
 				isPlayerGoodShot = false;
 			}
@@ -109,12 +88,47 @@ public class Battleship {
 				// check if enemy's ships are all destroyed, display
 				// corresponding message and finish the game
 				Display.printTable(enemyShowTable);
-				
+
 				System.out.println("\nAll ships from " + enemyName
 						+ " have been destroyed!");
 				System.out.println("*** " + playerName + " WIN! ***");
 				break;
 			}
+		}
+	}
+
+	// method that perform operation when player miss the ship
+	public static void playerMissShip(int row, int column,
+			char[][] enemyShowTable) {
+		// if player missed a ship, write 'X' in the enemy's table on
+		// that position
+		enemyShowTable[row][column] = 'X';
+
+		System.out.println("\nYou missed!");
+	}
+
+	// method that perform operations when one of the ship is hitted
+	public static void playerHitShip(int row, int column, String playerName,
+			char[][] enemyMainTable, char[][] enemyShowTable,
+			ArrayList<Ship> enemyShipGroup) {
+
+		// get index of the ship that was hit
+		int indexOfShip = getIndexOfShip(row, column, enemyMainTable,
+				enemyShipGroup);
+		// hit that ship, increase hit counter by 1
+		enemyShipGroup.get(indexOfShip).hit();
+
+		char shipFirstLetter = getShipFirstLetterFromIndex(indexOfShip);
+
+		enemyShowTable[row][column] = shipFirstLetter;
+
+		System.out.println("\nGood shot, " + playerName + "!");
+
+		if (enemyShipGroup.get(indexOfShip).getNumberOfHits() == enemyShipGroup
+				.get(indexOfShip).getShipLength()) {
+			System.out.println("*** You have been destroyed enemy's "
+					+ enemyShipGroup.get(indexOfShip).getShipName() + "! ***");
+			enemyShipGroup.get(indexOfShip).setDestroyed(true);
 		}
 	}
 
@@ -127,62 +141,41 @@ public class Battleship {
 
 		System.out.println(playerName + ", place your ships!");
 
-		// get position from aircraftcarrier, place it on the table, create ship
-		// object and place it in the ship group
-		int[] aircraftcarrierPosition = UserInput.getStartPositionFromUser(
-				input, "AIRCRAFTCARRIER - 5 squares long",
-				AIRCRAFTCARRIER_LENGTH, playerMainTable);
-		placeShipOnTable(aircraftcarrierPosition, AIRCRAFTCARRIER_LENGTH,
-				AIRCRAFTCARRIER, playerMainTable);
+		placePlayerShipOnTable(input, "AIRCRAFTCARRIER - 5 squares long",
+				"Aircraftcarrier", AIRCRAFTCARRIER_LENGTH, AIRCRAFTCARRIER,
+				playerMainTable, playerShipGroup);
 
-		Ship aircraftcarrier = new Ship("Aircraftcarrier",
-				AIRCRAFTCARRIER_LENGTH);
-		playerShipGroup.add(aircraftcarrier);
+		placePlayerShipOnTable(input, "BATTLESHIP - 4 squares long",
+				"Battleship", BATTLESHIP_LENGTH, BATTLESHIP, playerMainTable,
+				playerShipGroup);
 
-		// get position from battleship, place it on the table, create ship
-		// object and place it in the ship group
-		int[] battleshipPosition = UserInput.getStartPositionFromUser(input,
-				"BATTLESHIP - 4 squares long", BATTLESHIP_LENGTH,
-				playerMainTable);
-		placeShipOnTable(battleshipPosition, BATTLESHIP_LENGTH, BATTLESHIP,
-				playerMainTable);
+		placePlayerShipOnTable(input, "CRUISER - 3 squares long", "Cruiser",
+				CRUISER_LENGTH, CRUISER, playerMainTable, playerShipGroup);
 
-		Ship battleship = new Ship("Battleship", BATTLESHIP_LENGTH);
-		playerShipGroup.add(battleship);
+		placePlayerShipOnTable(input, "SUBMARINE - 3 squares long",
+				"Sumbarine", SUBMARINE_LENGTH, SUBMARINE, playerMainTable,
+				playerShipGroup);
 
-		// get position from cruiser, place it on the table, create ship
-		// object and place it in the ship group
-		int[] cruiserPosition = UserInput.getStartPositionFromUser(input,
-				"CRUISER - 3 squares long", CRUISER_LENGTH, playerMainTable);
-		placeShipOnTable(cruiserPosition, CRUISER_LENGTH, CRUISER,
-				playerMainTable);
-
-		Ship cruiser = new Ship("Cruiser", CRUISER_LENGTH);
-		playerShipGroup.add(cruiser);
-
-		// get position from submarine, place it on the table, create ship
-		// object and place it in the ship group
-		int[] submarinePosition = UserInput
-				.getStartPositionFromUser(input, "SUBMARINE - 3 squares long",
-						SUBMARINE_LENGTH, playerMainTable);
-		placeShipOnTable(submarinePosition, SUBMARINE_LENGTH, SUBMARINE,
-				playerMainTable);
-
-		Ship sumbarine = new Ship("Sumbarine", SUBMARINE_LENGTH);
-		playerShipGroup.add(sumbarine);
-
-		// get position from destroyer, place it on the table, create ship
-		// object and place it in the ship group
-		int[] destroyerPosition = UserInput
-				.getStartPositionFromUser(input, "DESTROYER - 2 squares long",
-						DESTROYER_LENGTH, playerMainTable);
-		placeShipOnTable(destroyerPosition, DESTROYER_LENGTH, DESTROYER,
-				playerMainTable);
-
-		Ship destroyer = new Ship("Destroyer", DESTROYER_LENGTH);
-		playerShipGroup.add(destroyer);
+		placePlayerShipOnTable(input, "DESTROYER - 2 squares long",
+				"Destroyer", DESTROYER_LENGTH, DESTROYER, playerMainTable,
+				playerShipGroup);
 
 		System.out.println("\n" + playerName + " ships have been deployed!");
+	}
+
+	public static void placePlayerShipOnTable(Scanner input, String text,
+			String shipName, int shipLength, char shipFirstLetter,
+			char[][] playerMainTable, ArrayList<Ship> playerShipGroup) {
+
+		// get position from ship, place it on the table, create ship
+		// object and place it in the ship group
+		int[] shipPosition = UserInput.getStartPositionFromUser(input, text,
+				shipLength, playerMainTable);
+		placeShipOnTable(shipPosition, shipLength, shipFirstLetter,
+				playerMainTable);
+
+		Ship ship = new Ship(shipName, shipLength);
+		playerShipGroup.add(ship);
 	}
 
 	// method that place one ship on table

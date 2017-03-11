@@ -22,7 +22,7 @@ public class Zadatak05 {
 		 */
 
 		Scanner input = new Scanner(System.in);
-		
+
 		String fileName = StringUserInput.getString(input, "Enter the file: ");
 
 		Path path = Paths.get("src/zadaci_10_03_2017/" + fileName + ".txt");
@@ -42,7 +42,7 @@ public class Zadatak05 {
 		while ((line = reader.readLine()) != null) {
 			try {
 				double number = Double.parseDouble(line);
-				
+
 				scores.add(number);
 			} catch (Exception ex) {
 				System.out.println("Line from a text file is not a number.");

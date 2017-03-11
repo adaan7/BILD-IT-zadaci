@@ -1,6 +1,6 @@
 package zadaci_10_03_2017;
 
-import java.io.BufferedWriter;
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -8,8 +8,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import ba.adan.zadaci.ui.DoubleUserInput;
-import ba.adan.zadaci.ui.IntUserInput;
+import ba.adan.zadaci.ui.StringUserInput;
 
 public class Zadatak05 {
 
@@ -23,49 +22,32 @@ public class Zadatak05 {
 		 */
 
 		Scanner input = new Scanner(System.in);
+		
+		String fileName = StringUserInput.getString(input, "Enter the file: ");
 
-		Path path = Paths.get("src/zadaci_10_03_2017/scores.txt");
+		Path path = Paths.get("src/zadaci_10_03_2017/" + fileName + ".txt");
 
 		if (!Files.exists(path)) {
-			Files.createFile(path);
+			System.out.println("File does not exist.");
+			System.exit(0);
 		}
 
-		Scanner reader = new Scanner(path);
-		BufferedWriter writer = Files.newBufferedWriter(path);
-
-		boolean continueInput = true;
-
-		// take input from user and write it down in file
-		while (continueInput) {
-			double score = DoubleUserInput.getDouble(input, "Enter a score: ",
-					0);
-
-			writer.write(score + " ");
-			writer.newLine();
-
-			int moreScores = IntUserInput.getInt(input,
-					"Do you want to add more scores (1 - yes, 2 - no)? ", 1, 2);
-
-			if (moreScores == 1) {
-				continueInput = true;
-			} else if (moreScores == 2) {
-				continueInput = false;
-			}
-		}
-
-		input.close();
-		writer.close();
+		BufferedReader reader = Files.newBufferedReader(path);
 
 		// create array list of doubles to store scores
 		ArrayList<Double> scores = new ArrayList<>();
-		String line;
+		String line = "";
 
 		// read scores from a file
-		while (reader.hasNext()) {
-			line = reader.nextLine();
-			double number = Double.parseDouble(line);
-
-			scores.add(number);
+		while ((line = reader.readLine()) != null) {
+			try {
+				double number = Double.parseDouble(line);
+				
+				scores.add(number);
+			} catch (Exception ex) {
+				System.out.println("Line from a text file is not a number.");
+				System.exit(0);
+			}
 		}
 
 		reader.close();
